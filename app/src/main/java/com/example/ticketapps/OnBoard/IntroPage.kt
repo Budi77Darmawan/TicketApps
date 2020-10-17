@@ -1,6 +1,7 @@
 package com.example.ticketapps.OnBoard
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,10 @@ import androidx.fragment.app.Fragment
 import com.example.ticketapps.R
 import kotlinx.android.synthetic.main.intro_layout.*
 
+@Suppress("DEPRECATION")
 class IntroPage : Fragment() {
     var position = 0
-    val mResources = intArrayOf(R.drawable.ic_illustration, R.drawable.ic_illustration, R.drawable.ic_illustration)
+    private val mResources = intArrayOf(R.drawable.ic_illustration, R.drawable.ic_illustration, R.drawable.ic_illustration)
     private val mTitle = arrayOf("Easy", "Fast","Get Started")
     private val mDes = arrayOf("easy to apply and anywhere",
         "fast in searching",
@@ -23,7 +25,7 @@ class IntroPage : Fragment() {
         val fragment = IntroPage()
         val arguments = Bundle()
         arguments.putInt("POSITION", position)
-        fragment.setArguments(arguments)
+        fragment.arguments = arguments
         return fragment
     }
 
@@ -31,18 +33,16 @@ class IntroPage : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater!!.inflate(R.layout.intro_layout, container, false);
-    }
+    ): View? = inflater.inflate(R.layout.intro_layout, container, false)
 
+
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val args = arguments
             position = args!!.getInt("POSITION")
-
-
-
+        
         intro_image.setImageDrawable(resources.getDrawable(mResources[position]))
         title.text = mTitle[position]
         description.text = mDes[position]
