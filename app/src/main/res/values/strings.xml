@@ -7,4 +7,7 @@
     <string name="text_to_Login">Already have an account? <b><font color='#03A9F4'>SIGN IN</font></b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ticket_apps">Ticket Apps</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
 </resources>

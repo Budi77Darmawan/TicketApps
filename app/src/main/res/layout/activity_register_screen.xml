@@ -14,8 +14,8 @@
         android:layout_marginTop="26dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginLeft="24dp"
-        android:text="Ticket Apps"
+        android:layout_marginStart="24dp"
+        android:text="@string/ticket_apps"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -27,11 +27,12 @@
         android:textSize="36sp"
         android:textColor="#000"
         android:textStyle="bold"
-        android:layout_marginLeft="24dp"
-        android:text="Register"
+        android:layout_marginStart="24dp"
+        android:text="@string/register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvApps"
         />
+
     <EditText
         android:id="@+id/et_name_reg"
         android:layout_width="match_parent"
@@ -39,13 +40,14 @@
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:hint="Fullname"
+        android:hint="@string/full_name"
         android:inputType="text"
         android:textSize="14sp"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitleReg"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitleReg"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_email_reg"
