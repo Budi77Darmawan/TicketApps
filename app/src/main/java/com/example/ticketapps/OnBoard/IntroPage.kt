@@ -23,7 +23,7 @@ class IntroPage : Fragment() {
         val fragment = IntroPage()
         val arguments = Bundle()
         arguments.putInt("POSITION", position)
-        fragment.setArguments(arguments)
+        fragment.arguments = arguments
         return fragment
     }
 
@@ -32,7 +32,7 @@ class IntroPage : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater!!.inflate(R.layout.intro_layout, container, false);
+        return inflater.inflate(R.layout.intro_layout, container, false);
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -40,8 +40,6 @@ class IntroPage : Fragment() {
 
         val args = arguments
             position = args!!.getInt("POSITION")
-
-
 
         intro_image.setImageDrawable(resources.getDrawable(mResources[position]))
         title.text = mTitle[position]
