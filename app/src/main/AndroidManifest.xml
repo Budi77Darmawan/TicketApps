@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FlightDetailActivity"></activity>
         <activity android:name=".OnBoard.OnBoardActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".MainActivity">

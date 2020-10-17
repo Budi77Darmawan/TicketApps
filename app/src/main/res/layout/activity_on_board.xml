@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/intro_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,40 +11,50 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tabLayout"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"/>
 
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@id/tabLayout"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/register"
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp" />
+
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/login"
+        android:layout_marginBottom="10pt"
+        android:width="319dp"
+        android:background="@drawable/btn_corner"
         android:text="Create My Account"
         android:textColor="#fff"
-        android:background="@drawable/btn_corner"
-        android:width="319dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10pt"
-        android:layout_above="@+id/login"/>
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30pt"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimary"
+        android:width="319dp"
         android:background="@drawable/border_btn"
         android:text="Sign In"
-        android:width="319dp"
-        android:layout_marginBottom="30pt"
-        android:layout_above="@+id/skip"/>
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/next"
         android:layout_width="wrap_content"
@@ -53,19 +64,23 @@
         android:text="@string/next"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#fff"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
         android:text="@string/skip"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
