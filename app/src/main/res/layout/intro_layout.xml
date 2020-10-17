@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/third_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -11,14 +12,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/intro_image"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="oke"
             android:textColor="#000"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intro_image" />
 
         <TextView
             android:id="@+id/description"
@@ -28,28 +31,24 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
-            android:gravity="center"
+            android:textAlignment="center"
             android:text="oke"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/title"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/intro_image"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp" />
 
         <ImageView
             android:id="@+id/intro_image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50pt"
-            android:src="@drawable/ic_illustration" />
+            android:src="@drawable/ic_illustration"
+            android:layout_marginTop="20pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

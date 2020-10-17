@@ -90,7 +90,7 @@ class OnBoardActivity : AppCompatActivity() {
 
 
 @Suppress("DEPRECATION")
-class SlidingPagerAdapter(fragmentManager: FragmentManager?, val mResources: IntArray) :
+class SlidingPagerAdapter(fragmentManager: FragmentManager?, private val mResources: IntArray) :
     FragmentPagerAdapter(
         fragmentManager!!
     ) {
