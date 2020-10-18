@@ -1,4 +1,4 @@
-package com.example.ticketapps.OnBoard
+package com.example.ticketapps.onBoard
 
 import android.view.View
 import android.widget.ImageView

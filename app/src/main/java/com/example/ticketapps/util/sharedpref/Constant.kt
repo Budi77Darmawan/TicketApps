@@ -1,4 +1,4 @@
-package com.example.ticketapps.sharedpref
+package com.example.ticketapps.util.sharedpref
 
 object Constant {
     const val KEY_NAME = "Fullname"

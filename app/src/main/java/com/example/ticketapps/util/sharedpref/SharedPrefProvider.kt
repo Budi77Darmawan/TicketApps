@@ -1,4 +1,4 @@
-package com.example.ticketapps.sharedpref
+package com.example.ticketapps.util.sharedpref
 
 import android.content.Context
 

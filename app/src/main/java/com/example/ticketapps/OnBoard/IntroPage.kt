@@ -1,4 +1,4 @@
-package com.example.ticketapps.OnBoard
+package com.example.ticketapps.onBoard
 
 
 import android.annotation.SuppressLint
@@ -41,6 +41,7 @@ class IntroPage : Fragment() {
 
         val args = arguments
             position = args!!.getInt("POSITION")
+
         intro_image.setImageDrawable(resources.getDrawable(mResources[position]))
         title.text = mTitle[position]
         description.text = mDes[position]
