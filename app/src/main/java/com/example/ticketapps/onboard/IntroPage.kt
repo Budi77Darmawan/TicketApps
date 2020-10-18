@@ -1,4 +1,6 @@
-package com.example.ticketapps.onboard
+
+package com.example.ticketapps.onBoard
+
 
 
 import android.annotation.SuppressLint
@@ -33,15 +35,17 @@ class IntroPage : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.intro_layout, container, false);
-    }
+    ): View? = inflater.inflate(R.layout.intro_layout, container, false)
+
+
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val args = arguments
             position = args!!.getInt("POSITION")
+
+
         intro_image.setImageDrawable(resources.getDrawable(mResources[position]))
         title.text = mTitle[position]
         description.text = mDes[position]

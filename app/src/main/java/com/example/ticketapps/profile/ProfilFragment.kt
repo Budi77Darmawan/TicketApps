@@ -62,8 +62,8 @@ class ProfilFragment : Fragment() {
             if (it) {
                 val data = viewModel.listLiveData.value?.firstOrNull()
 
-                if (data?.image.isNullOrEmpty()) binding.photoProfile.setImageResource(R.drawable.blank_user)
-                else Picasso.get().load(getPhotoImage(data?.image!!)).into(binding.photoProfile)
+                if (data?.image.isNullOrEmpty()) binding.photoProfile.setImageResource(R.drawable.blank_portrait)
+                else Picasso.get().load(getPhotoImage(data?.image!!)).placeholder(R.drawable.blank_portrait).into(binding.photoProfile)
 
                 binding.tvNameProfile.text = data?.full_name?: "Full_name"
                 binding.tvCity.text = data?.city ?: "City"

@@ -2,7 +2,7 @@ package com.example.ticketapps.util
 
 import android.content.Context
 import okhttp3.OkHttpClient
-//import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -14,16 +14,17 @@ class ApiClient {
         private const val BASE_URL = "http://10.0.2.2:9090/"
         private var retrofit: Retrofit? = null
 
-       /* private fun provideHttpLoggingInterceptor() = run {
+        private fun provideHttpLoggingInterceptor() = run {
+
             HttpLoggingInterceptor().apply {
                 apply { level = HttpLoggingInterceptor.Level.BODY }
             }
         }
-*/
+
         fun getApiClient(mContext: Context): Retrofit? {
             if (retrofit == null) {
                 val okHttpClient = OkHttpClient.Builder()
-                    //.addInterceptor(provideHttpLoggingInterceptor())
+                    .addInterceptor(provideHttpLoggingInterceptor())
                     .addInterceptor(HeaderInterceptor(mContext))
                     .connectTimeout(1, TimeUnit.MINUTES)
                     .readTimeout(1, TimeUnit.MINUTES)

@@ -1,4 +1,5 @@
-package com.example.ticketapps.onboard
+package com.example.ticketapps.onBoard
+
 
 import android.content.Intent
 import android.os.Bundle
