@@ -1,8 +1,8 @@
-package com.example.ticketapps
+package com.example.ticketapps.util
 
 import android.content.Context
-import com.example.hiringapps.sharedpref.Constant
-import com.example.hiringapps.sharedpref.SharedPrefProvider
+import com.example.ticketapps.util.sharedpref.Constant
+import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import okhttp3.Interceptor
 import okhttp3.Response
 

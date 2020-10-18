@@ -1,17 +1,10 @@
 package com.example.ticketapps.profile
 
-import android.app.Activity
 import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
 import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.hiringapps.sharedpref.Constant
-import com.example.hiringapps.sharedpref.SharedPrefProvider
-import com.example.ticketapps.login.LoginScreenActivity
+import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

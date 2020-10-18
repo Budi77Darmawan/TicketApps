@@ -1,4 +1,4 @@
-package com.example.ticketapps
+package com.example.ticketapps.util
 
 import android.content.Context
 import okhttp3.OkHttpClient
