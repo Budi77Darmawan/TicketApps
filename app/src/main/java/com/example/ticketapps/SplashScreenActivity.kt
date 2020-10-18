@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.ticketapps.onBoard.OnBoardActivity
+import com.example.ticketapps.onboard.OnBoardActivity
 import com.example.ticketapps.databinding.ActivitySplashScreenBinding
 
 

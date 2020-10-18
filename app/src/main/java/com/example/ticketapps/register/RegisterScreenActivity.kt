@@ -3,6 +3,7 @@ package com.example.ticketapps.register
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -46,6 +47,10 @@ class RegisterScreenActivity : AppCompatActivity() {
     private fun subscribeLiveData() {
         viewModel.isLoadingLiveData.observe(this, {
             binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
+
+        viewModel.isMessageLiveData.observe(this, {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
 
         viewModel.isRegisterLiveData.observe(this, {

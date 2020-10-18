@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SearchFlightActivity"></activity>
         <activity android:name=".FlightDetailActivity" />
-        <activity android:name=".onBoard.OnBoardActivity" />
+        <activity android:name=".onboard.OnBoardActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />

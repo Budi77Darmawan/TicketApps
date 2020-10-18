@@ -6,7 +6,7 @@ import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class HeaderInterceptor(val mContext: Context) : Interceptor {
+class HeaderInterceptor(mContext: Context) : Interceptor {
 
     private val sharedPref = SharedPrefProvider(mContext)
 
@@ -15,8 +15,7 @@ class HeaderInterceptor(val mContext: Context) : Interceptor {
         val token = sharedPref.getString(Constant.KEY_TOKEN)
         proceed(
             request().newBuilder()
-                .addHeader("Authorization", "Bearer")
-//                .addHeader("Authorization", "Bearer $token")
+                .addHeader("Authorization", "Bearer $token")
                 .build()
         )
     }
