@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlightDetailActivity"></activity>
+        <activity android:name=".SearchFlightActivity"></activity>
+        <activity android:name=".FlightDetailActivity" />
         <activity android:name=".OnBoard.OnBoardActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".MainActivity">
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreenActivity"></activity>
+        <activity android:name=".SplashScreenActivity" />
     </application>
 
 </manifest>
