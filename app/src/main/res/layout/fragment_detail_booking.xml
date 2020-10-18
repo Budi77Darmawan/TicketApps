@@ -18,11 +18,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:contentDescription="button back"
-=======
-                android:contentDescription="back"
->>>>>>> dbfe31b697bd8caa7000295e2f252800fe3e3aee
                 android:src="@drawable/ic_btnback" />
 
             <TextView
