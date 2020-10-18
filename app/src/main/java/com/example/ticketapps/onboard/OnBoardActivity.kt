@@ -1,5 +1,6 @@
 package com.example.ticketapps.onBoard
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_on_board.*
 class OnBoardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardBinding
-    val mResources = intArrayOf(
+    private val mResources = intArrayOf(
         R.drawable.ic_illustration,
         R.drawable.ic_illustration,
         R.drawable.ic_illustration

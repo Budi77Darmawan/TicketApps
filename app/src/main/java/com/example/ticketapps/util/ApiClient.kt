@@ -15,6 +15,7 @@ class ApiClient {
         private var retrofit: Retrofit? = null
 
         private fun provideHttpLoggingInterceptor() = run {
+
             HttpLoggingInterceptor().apply {
                 apply { level = HttpLoggingInterceptor.Level.BODY }
             }

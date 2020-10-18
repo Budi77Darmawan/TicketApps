@@ -3,6 +3,9 @@
     package="com.example.ticketapps">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -11,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchFlightActivity"></activity>
-        <activity android:name=".FlightDetailActivity" />
+        <activity android:name=".FlightDetailActivity"></activity>
         <activity android:name=".onBoard.OnBoardActivity" />
+        <activity android:name=".SearchFlightActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
