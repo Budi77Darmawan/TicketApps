@@ -37,7 +37,6 @@ class OnBoardActivity : AppCompatActivity() {
             login.setOnClickListener {
                 var intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
                 startActivity(intentlogin)
-                finish()
             }
             register.setOnClickListener {
                 var intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)

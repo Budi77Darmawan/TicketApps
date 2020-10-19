@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.ticketapps.FlightDetailActivity
 import com.example.ticketapps.MainActivity
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ActivityLoginScreenBinding
@@ -36,7 +37,7 @@ class LoginScreenActivity : AppCompatActivity() {
         subscribeLiveData()
 
         binding.btnLogin.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, FlightDetailActivity::class.java)
             startActivity(intent)
         }
 

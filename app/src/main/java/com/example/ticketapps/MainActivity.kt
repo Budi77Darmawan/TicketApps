@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.ticketapps.detailbooking.DetailBookingFragment
 import com.example.ticketapps.profile.ProfilFragment
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadFragment(ProfilFragment())
+        loadFragment(DetailBookingFragment())
     }
 
     private fun loadFragment(fragment: Fragment) {

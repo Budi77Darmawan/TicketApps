@@ -3,6 +3,7 @@ package com.example.ticketapps.profile
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.ticketapps.util.sharedpref.Constant
 import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import com.example.ticketapps.util.ApiClient
@@ -44,7 +46,7 @@ class ProfilFragment : Fragment() {
         val idAccount = sharedPref.getString(Constant.KEY_ID_ACCOUNT)?: ""
         if (service != null) {
             viewModel.setProfileService(service)
-        viewModel.callProfileApi("${Constant.KEY_ID_ACCOUNT}")
+        viewModel.callProfileApi(idAccount)
         subscribeLiveData()
     }
 
@@ -63,8 +65,8 @@ class ProfilFragment : Fragment() {
                 val data = viewModel.listLiveData.value?.firstOrNull()
 
                 if (data?.image.isNullOrEmpty()) binding.photoProfile.setImageResource(R.drawable.blank_portrait)
-                else Picasso.get().load(getPhotoImage(data?.image!!)).placeholder(R.drawable.blank_portrait).into(binding.photoProfile)
-
+                else Glide.with(this).load(getPhotoImage(data!!.image!!)).placeholder(R.drawable.blank_portrait).into(binding.photoProfile)
+                Log.d("imageku","${data?.image?.let { it1 -> getPhotoImage(it1) }}")
                 binding.tvNameProfile.text = data?.full_name?: "Full_name"
                 binding.tvCity.text = data?.city ?: "City"
                 binding.tvLocation.text = data?.address ?: "Address"
@@ -72,7 +74,7 @@ class ProfilFragment : Fragment() {
                     logout()
                 }
             } else {
-                Toast.makeText(this.requireContext(), "error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(), "Data Empty", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -83,7 +85,7 @@ class ProfilFragment : Fragment() {
                 .setTitle("Log out")
                 .setMessage("Are you sure want to logout?")
                 .setCancelable(false)
-                .setPositiveButton("YES") { dialog: DialogInterface?, which: Int ->
+                .setPositiveButton("YES") { _: DialogInterface?, _: Int ->
                     sharedPref.resetSharedPref()
                     var i = Intent(activity, LoginScreenActivity::class.java)
                     startActivity(i)
@@ -91,7 +93,7 @@ class ProfilFragment : Fragment() {
                     Toast.makeText(it, "Log Out", Toast.LENGTH_SHORT).show()
 
                 }
-                .setNegativeButton("NO") { dialogInterface, i ->
+                .setNegativeButton("NO") { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
         }

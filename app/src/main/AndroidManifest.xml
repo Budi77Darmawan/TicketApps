@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlightDetailActivity"></activity>
+        <activity android:name=".FlightDetailActivity"/>
         <activity android:name=".onBoard.OnBoardActivity" />
-        <activity android:name=".SearchFlightActivity"></activity>
+        <activity android:name=".SearchFlightActivity"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
