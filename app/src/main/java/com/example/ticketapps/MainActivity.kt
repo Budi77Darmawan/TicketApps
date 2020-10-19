@@ -1,18 +1,56 @@
 package com.example.ticketapps
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.ticketapps.detailbooking.DetailBookingFragment
+import com.example.ticketapps.databinding.ActivityMainBinding
+import com.example.ticketapps.mybooking.MyBookingFragment
 import com.example.ticketapps.profile.ProfilFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        loadFragment(DetailBookingFragment())
+        loadFragment(ProfilFragment())
+
+        binding.let {
+            it.mybooking.setOnClickListener(this)
+            it.explore.setOnClickListener(this)
+            it.profile.setOnClickListener(this)
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.mybooking -> {
+                binding.mybooking.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_calenderactive))
+                binding.tvMybooking.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                binding.profile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_user))
+                binding.tvProfile.setTextColor(Color.parseColor("#979797"))
+                loadFragment(MyBookingFragment())
+            }
+            R.id.explore -> {
+                binding.mybooking.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_calender))
+                binding.tvMybooking.setTextColor(Color.parseColor("#979797"))
+                binding.profile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_user))
+                binding.tvProfile.setTextColor(Color.parseColor("#979797"))
+            }
+            R.id.profile -> {
+                binding.mybooking.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_calender))
+                binding.tvMybooking.setTextColor(Color.parseColor("#979797"))
+                binding.profile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_useractive))
+                binding.tvProfile.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                loadFragment(ProfilFragment())
+            }
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {

@@ -15,7 +15,6 @@ class DetailBookingViewModel : ViewModel(), CoroutineScope {
     val listLiveData = MutableLiveData<List<DetailBookingModel>>()
 
     private lateinit var service: DetailBookingApiService
-    private lateinit var sharedPref: SharedPrefProvider
 
     override val coroutineContext: CoroutineContext
         get() = Job() + Dispatchers.Main
@@ -24,17 +23,13 @@ class DetailBookingViewModel : ViewModel(), CoroutineScope {
         this.service = service
     }
 
-    fun getSharedPreferences(mContext:Context) {
-        sharedPref = SharedPrefProvider(mContext)
-    }
 
-
-    fun callDetailBookingApi(id: String) {
+    fun callDetailBookingApi(id: Int) {
         launch {
             isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service.getDetailBookingID(id.toInt())
+                    service.getDetailBookingID(id)
 
                 } catch (e: Throwable) {
                     e.printStackTrace()

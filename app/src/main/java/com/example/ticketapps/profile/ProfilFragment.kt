@@ -19,41 +19,33 @@ import com.example.ticketapps.util.ApiClient
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
-import com.squareup.picasso.Picasso
 
 
 class ProfilFragment : Fragment() {
     private lateinit var sharedPref: SharedPrefProvider
     private lateinit var binding: FragmentProfilBinding
     private lateinit var viewModel: ProfileViewModel
-    private fun getPhotoImage(file: String) : String = "http://10.0.2.2:9090/uploads/$file"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private fun getPhotoImage(file: String): String = "http://3.84.47.133:9090/uploads/$file"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profil, container, false)
         sharedPref = SharedPrefProvider(requireContext())
 
-        val service = ApiClient.getApiClient(this.requireContext())?.create(ProfileApiService::class.java)
+        val service =
+            ApiClient.getApiClient(this.requireContext())?.create(ProfileApiService::class.java)
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         viewModel.getSharedPreferences(requireContext())
-        val idAccount = sharedPref.getString(Constant.KEY_ID_ACCOUNT)?: ""
+        val id = sharedPref.getString(Constant.KEY_ID_ACCOUNT)
         if (service != null) {
             viewModel.setProfileService(service)
-        viewModel.callProfileApi(idAccount)
-        subscribeLiveData()
+            viewModel.callProfileApi(id.toString())
+            subscribeLiveData()
+        }
+        return binding.root
     }
-
-
-    return binding.root
-    }
-
 
     private fun subscribeLiveData() {
         viewModel.isLoadingLiveData.observe(viewLifecycleOwner, {
@@ -63,13 +55,21 @@ class ProfilFragment : Fragment() {
         viewModel.isProfileLiveData.observe(viewLifecycleOwner, {
             if (it) {
                 val data = viewModel.listLiveData.value?.firstOrNull()
+                if (data != null) {
+                    if (data.image.isNullOrEmpty()) {
+                        binding.photoProfile.setImageResource(R.drawable.blank_portrait)
+                    } else {
+                        Glide.with(this)
+                            .load(getPhotoImage(data.image))
+                            .into(binding.photoProfile)
+                    }
+                }
 
-                if (data?.image.isNullOrEmpty()) binding.photoProfile.setImageResource(R.drawable.blank_portrait)
-                else Glide.with(this).load(getPhotoImage(data!!.image!!)).placeholder(R.drawable.blank_portrait).into(binding.photoProfile)
-                Log.d("imageku","${data?.image?.let { it1 -> getPhotoImage(it1) }}")
                 binding.tvNameProfile.text = data?.full_name?: "Full_name"
+
                 binding.tvCity.text = data?.city ?: "City"
                 binding.tvLocation.text = data?.address ?: "Address"
+
                 binding.tvLogout.setOnClickListener {
                     logout()
                 }
@@ -87,16 +87,15 @@ class ProfilFragment : Fragment() {
                 .setCancelable(false)
                 .setPositiveButton("YES") { _: DialogInterface?, _: Int ->
                     sharedPref.resetSharedPref()
-                    var i = Intent(activity, LoginScreenActivity::class.java)
+                    val i = Intent(activity, LoginScreenActivity::class.java)
                     startActivity(i)
                     requireActivity().finish()
                     Toast.makeText(it, "Log Out", Toast.LENGTH_SHORT).show()
-
                 }
                 .setNegativeButton("NO") { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
         }
-        dialog!!.show()
-        }
+        dialog?.show()
+    }
 }

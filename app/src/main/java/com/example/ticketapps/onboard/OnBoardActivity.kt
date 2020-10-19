@@ -1,5 +1,4 @@
-package com.example.ticketapps.onBoard
-
+package com.example.ticketapps.onboard
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,7 +25,7 @@ class OnBoardActivity : AppCompatActivity() {
     )
     lateinit var adapter: SlidingPagerAdapter
     var currentTab = 0
-    var tabCount = 0
+    private var tabCount = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +34,11 @@ class OnBoardActivity : AppCompatActivity() {
 
         binding.apply {
             login.setOnClickListener {
-                var intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
+                val intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
                 startActivity(intentlogin)
             }
             register.setOnClickListener {
-                var intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
+                val intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
                 startActivity(intentregister)
             }
         }

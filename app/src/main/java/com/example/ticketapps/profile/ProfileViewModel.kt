@@ -1,7 +1,6 @@
 package com.example.ticketapps.profile
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ticketapps.util.sharedpref.SharedPrefProvider
@@ -43,8 +42,7 @@ class ProfileViewModel : ViewModel(), CoroutineScope {
                     }
                 }
             }
-            Log.d("ID Account", "$id")
-            Log.d("Boolean Response", (response is ProfileResponse).toString())
+
             if (response is ProfileResponse) {
                 val data = response.data
                 val list =

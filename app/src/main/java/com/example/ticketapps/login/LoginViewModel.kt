@@ -1,8 +1,9 @@
 package com.example.ticketapps.login
 
-import android.util.Log
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.ticketapps.util.sharedpref.Constant
 import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -11,7 +12,9 @@ class LoginViewModel : ViewModel(), CoroutineScope {
 
     val isLoadingLiveData = MutableLiveData<Boolean>()
     val isLoginLiveData = MutableLiveData<Boolean>()
-    val errorMessageLiveData = MutableLiveData<String>()
+    private lateinit var idAccount: String
+    private lateinit var token: String
+    val isMessageLiveData = MutableLiveData<String>()
 
     private lateinit var service: LoginApiService
     private lateinit var sharedPref: SharedPrefProvider
@@ -23,8 +26,10 @@ class LoginViewModel : ViewModel(), CoroutineScope {
         this.service = service
     }
 
-    fun setSharedPreferences(sharedPref: SharedPrefProvider) {
-        this.sharedPref = sharedPref
+    fun putSharedPreferences(mContext: Context) {
+        sharedPref = SharedPrefProvider(mContext)
+        sharedPref.putString(Constant.KEY_ID_ACCOUNT, idAccount)
+        sharedPref.putString(Constant.KEY_TOKEN, token)
     }
 
     fun callLoginApi(email: String?, password: String?) {
@@ -39,7 +44,12 @@ class LoginViewModel : ViewModel(), CoroutineScope {
                 }
             }
             if (response is LoginResponse) {
-                isLoginLiveData.value = true
+                if (response.success) {
+                    idAccount = response.data.idAccount.toString()
+                    token = response.data.token.toString()
+                    isLoginLiveData.value = true
+                }
+                isMessageLiveData.value = response.message
             }
             isLoadingLiveData.value = false
         }

@@ -11,6 +11,7 @@ class RegisterViewModel : ViewModel(), CoroutineScope {
 
     val isLoadingLiveData = MutableLiveData<Boolean>()
     val isRegisterLiveData = MutableLiveData<Boolean>()
+    val isMessageLiveData = MutableLiveData<String>()
 
     private lateinit var service: RegisterApiService
     override val coroutineContext: CoroutineContext
@@ -32,6 +33,7 @@ class RegisterViewModel : ViewModel(), CoroutineScope {
                 }
             }
             if (response is RegisterResponse) {
+                isMessageLiveData.value = response.message
                 isRegisterLiveData.value = true
             }
             isLoadingLiveData.value = false

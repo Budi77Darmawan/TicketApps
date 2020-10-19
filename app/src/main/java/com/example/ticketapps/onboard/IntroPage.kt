@@ -1,7 +1,4 @@
-
-package com.example.ticketapps.onBoard
-
-
+package com.example.ticketapps.onboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -21,7 +18,6 @@ class IntroPage : Fragment() {
         "fast in searching",
         "free of charge",
     )
-
 
     fun newInstance(position: Int): IntroPage {
         val fragment = IntroPage()
