@@ -22,4 +22,5 @@
     <string name="or">or</string>
     <string name="google_icon">Google Icon</string>
     <string name="facebook_icon">Facebook Icon</string>
+    <string name="button_back">button back</string>
 </resources>

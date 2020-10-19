@@ -6,7 +6,7 @@ import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class HeaderInterceptor(mContext: Context) : Interceptor {
+class HeaderInterceptor(private val mContext: Context) : Interceptor {
 
     private val sharedPref = SharedPrefProvider(mContext)
 

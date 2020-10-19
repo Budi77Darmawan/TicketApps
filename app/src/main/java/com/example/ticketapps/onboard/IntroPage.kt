@@ -1,6 +1,5 @@
 package com.example.ticketapps.onboard
 
-
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +19,6 @@ class IntroPage : Fragment() {
         "free of charge",
     )
 
-
     fun newInstance(position: Int): IntroPage {
         val fragment = IntroPage()
         val arguments = Bundle()
@@ -35,12 +33,14 @@ class IntroPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.intro_layout, container, false)
 
+
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val args = arguments
             position = args!!.getInt("POSITION")
+
 
         intro_image.setImageDrawable(resources.getDrawable(mResources[position]))
         title.text = mTitle[position]

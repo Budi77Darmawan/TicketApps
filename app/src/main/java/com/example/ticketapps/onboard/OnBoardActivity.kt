@@ -18,14 +18,14 @@ import kotlinx.android.synthetic.main.activity_on_board.*
 class OnBoardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardBinding
-    val mResources = intArrayOf(
+    private val mResources = intArrayOf(
         R.drawable.ic_illustration,
         R.drawable.ic_illustration,
         R.drawable.ic_illustration
     )
     lateinit var adapter: SlidingPagerAdapter
     var currentTab = 0
-    var tabCount = 0
+    private var tabCount = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +34,12 @@ class OnBoardActivity : AppCompatActivity() {
 
         binding.apply {
             login.setOnClickListener {
-                var intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
+                val intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
                 startActivity(intentlogin)
                 finish()
             }
             register.setOnClickListener {
-                var intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
+                val intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
                 startActivity(intentregister)
             }
         }
