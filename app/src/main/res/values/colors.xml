@@ -2,8 +2,12 @@
 <resources>
     <color name="colorPrimary">#2395FF</color>
     <color name="colorPrimaryDark">#0361B8</color>
+    <color name="colorPrimaryLight">#9cd0f7</color>
     <color name="colorAccent">#2395FF</color>
     <color name="divider">#C6C6C6</color>
-
+    <color name="textColorIcon">#FFFFFF</color>
+    <color name="TextColorPrimary">#000000</color>
+    <color name="TextColorSecondary">#4C4C4C</color>
+    <color name="background_shadow">#E5E5E5</color>
     <color name="colorGreen">#4FCF4D</color>
 </resources>
