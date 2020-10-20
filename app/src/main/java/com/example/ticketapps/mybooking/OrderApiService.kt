@@ -1,4 +1,4 @@
-package com.example.ticketapps
+package com.example.ticketapps.mybooking
 
 import com.example.ticketapps.mybooking.OrderResponse
 import retrofit2.http.GET

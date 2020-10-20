@@ -13,18 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".SearchFlightActivity" />
+        <activity android:name=".searchResult.SearchResultActivity" />
         <activity android:name=".FlightDetailActivity" />
         <activity android:name=".onboard.OnBoardActivity" />
-        <activity android:name=".MainActivity"/>
-=======
-        <activity android:name=".searchResult.SearchResultActivity"></activity>
-        <activity android:name=".FlightDetailActivity" />
-        <activity android:name=".onBoard.OnBoardActivity" />
         <activity android:name=".SearchFlightActivity" />
         <activity android:name=".MainActivity" />
->>>>>>> 0277b5d276ee868de57283c89ff35da22c1c0191
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".SplashScreenActivity">
@@ -34,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".searchResult.SearchResultActivity"/>
     </application>
 
 </manifest>

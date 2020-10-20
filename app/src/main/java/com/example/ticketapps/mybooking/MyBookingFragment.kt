@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ticketapps.OrderApiService
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentMyBookingBinding
 import com.example.ticketapps.util.ApiClient
@@ -43,7 +42,7 @@ class MyBookingFragment : Fragment() {
         listOrderAdapter.setOnItemClickCallback(object :
             ListOrderAdapter.OnItemClickCallback {
 
-            override fun onItemClicked(id_order: Int) {
+            override fun onItemClicked(id: Int) {
 //                val intent = Intent(activity, DetailProjectActivity::class.java)
 //                intent.putExtra(DetailProjectActivity.EXTRA_DATA, list[id])
 //                startActivity(intent)
