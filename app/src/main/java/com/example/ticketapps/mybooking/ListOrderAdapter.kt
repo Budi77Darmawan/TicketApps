@@ -1,13 +1,18 @@
 package com.example.ticketapps.mybooking
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ItemListMybookingBinding
+import com.example.ticketapps.detailbooking.DetailBookingFragment
 
 class ListOrderAdapter(private val items: List<OrderModel>) :
     RecyclerView.Adapter<ListOrderAdapter.ListViewHolder>() {
@@ -52,7 +57,16 @@ class ListOrderAdapter(private val items: List<OrderModel>) :
         }
 
         holder.binding.layout.setOnClickListener {
-            onItemClickCallback.onItemClicked(item.id_order!!.toInt())
+           onItemClickCallback.onItemClicked(position)
+
+//            if (item.status_payment.toString() != "paid")
+//            {
+//                Toast.makeText(content, "Waiting for Payment", Toast.LENGTH_SHORT).show()
+//            }else{
+//                val intent = Intent(content, DetailBookingFragment::class.java)
+//                intent.putExtra("DetailBookingFragment", item.id_order)
+//                content.startActivity(intent)
+//            }
         }
     }
 

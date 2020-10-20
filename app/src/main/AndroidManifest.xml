@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SearchFlightActivity" >
         </activity>
-        <activity android:name=".FlightDetailActivity" />
+        <activity android:name=".flighdetail.FlightDetailActivity" />
+
         <activity android:name=".onboard.OnBoardActivity" />
         <activity android:name=".MainActivity"/>
 <!--            <intent-filter>-->
@@ -29,12 +30,13 @@
         <activity android:name=".detailbooking.DetailBookingFragment"/>
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".SplashScreenActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

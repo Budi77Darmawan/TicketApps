@@ -11,7 +11,7 @@ data class OrderModel (
     var status_payment: String? = "",
     var price: String? = "",
     var order_class: String? = "",
-    var time_flight : String? = "",
+    var times_flight : String? = "",
     var code_depature: String? = "",
     var city_depature: String? = "",
     var code_country_depature: String? = "",

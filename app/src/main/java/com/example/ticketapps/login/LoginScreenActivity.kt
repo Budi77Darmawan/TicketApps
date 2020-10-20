@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.ticketapps.FlightDetailActivity
 import com.example.ticketapps.MainActivity
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ActivityLoginScreenBinding
