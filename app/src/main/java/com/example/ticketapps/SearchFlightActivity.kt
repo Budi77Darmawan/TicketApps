@@ -1,5 +1,6 @@
 package com.example.ticketapps
 
+<<<<<<< HEAD
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -99,5 +100,26 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
                 bottomSheetProject.show()
             }
         }
+=======
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import com.example.ticketapps.databinding.ActivitySearchFlightBinding
+import com.example.ticketapps.searchResult.SearchResultActivity
+
+class SearchFlightActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySearchFlightBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_search_flight)
+        binding.buttonSearchFlight.setOnClickListener {
+            val intent = Intent(this, SearchResultActivity::class.java)
+            startActivity(intent)
+        }
+
+>>>>>>> 0277b5d276ee868de57283c89ff35da22c1c0191
     }
 }

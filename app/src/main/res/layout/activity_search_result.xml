@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".searchResult.SearchResultActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/background_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/background"
+                    android:src="@drawable/ic_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/background_plane"
+                    android:src="@drawable/ic_planeblue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/button_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:contentDescription="@string/button_back"
+                    android:src="@drawable/ic_btnback"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:padding="8dp"
+                    android:text="@string/date"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/button_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/button_back" />
+
+                <TextView
+                    android:id="@+id/tv_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/from"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@id/button_back"
+                    app:layout_constraintTop_toBottomOf="@id/button_back" />
+
+                <TextView
+                    android:id="@+id/tv_city_departure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/medan"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/button_back"
+                    app:layout_constraintTop_toBottomOf="@id/tv_from" />
+
+                <TextView
+                    android:id="@+id/tv_country_departure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/indonesia"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/button_back"
+                    app:layout_constraintTop_toBottomOf="@id/tv_city_departure" />
+
+                <TextView
+                    android:id="@+id/tv_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_from"
+                    app:layout_constraintEnd_toEndOf="@id/tv_date" />
+
+                <TextView
+                    android:id="@+id/tv_city_destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tokyo"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/tv_date"
+                    app:layout_constraintTop_toBottomOf="@id/tv_from" />
+
+                <TextView
+                    android:id="@+id/tv_country_destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/japan"
+                    android:textColor="@color/textColorIcon"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@id/tv_date"
+                    app:layout_constraintTop_toBottomOf="@id/tv_city_departure" />
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/arrow_from_to"
+                    android:src="@drawable/ic_arrow2"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_city_departure"
+                    app:layout_constraintEnd_toStartOf="@id/tv_city_destination"
+                    app:layout_constraintStart_toEndOf="@id/tv_city_departure"
+                    app:layout_constraintTop_toTopOf="@id/tv_city_departure"
+                    app:tint="@color/textColorIcon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+
+                <ImageView
+                    android:id="@+id/background2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/background"
+                    android:src="@drawable/ic_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/background_shadow" />
+
+                <TextView
+                    android:id="@+id/tv_passenger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/passenger"
+                    android:textColor="@color/TextColorSecondary"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_passenger_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/_2_child_4_adults"
+                    android:textColor="@color/TextColorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_passenger" />
+
+                <TextView
+                    android:id="@+id/tv_class"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="130dp"
+                    android:text="@string/class_tv"
+                    android:textColor="@color/TextColorSecondary"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_class_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/economy"
+                    android:textColor="@color/TextColorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_class"
+                    app:layout_constraintTop_toBottomOf="@id/tv_passenger" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info">
+
+                <TextView
+                    android:id="@+id/tv_flight_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/_6_flight_found"
+                    android:textColor="@color/TextColorSecondary"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:drawablePadding="14dp"
+                    android:text="@string/filter"
+                    android:textColor="@color/TextColorPrimary"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/up_and_down_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_view_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_flight_count" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
