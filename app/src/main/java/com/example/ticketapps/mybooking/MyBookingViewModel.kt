@@ -34,7 +34,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
                         it.status_payment.orEmpty(),
                         it.price.orEmpty(),
                         it.order_class.orEmpty(),
-                        it.time_flight.orEmpty(),
+                        it.times_flight.orEmpty(),
                         it.code_depature.orEmpty(),
                         it.city_depature.orEmpty(),
                         it.code_country_depature.orEmpty(),

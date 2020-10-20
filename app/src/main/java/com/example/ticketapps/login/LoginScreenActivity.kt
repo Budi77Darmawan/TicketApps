@@ -31,6 +31,7 @@ class LoginScreenActivity : AppCompatActivity() {
         subscribeLiveData()
 
         binding.btnLogin.setOnClickListener {
+
             viewModel.callLoginApi(
                 binding.etEmail.text.toString(),
                 binding.inputPass.text.toString()

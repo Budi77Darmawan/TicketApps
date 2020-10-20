@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:orientation="vertical"
-        tools:context=".DetailBookingFragment">
+        tools:context=".detailbooking.DetailBookingFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -16,6 +16,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/backSpace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="button back"
@@ -324,6 +325,17 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/img_barcode" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar"
+                            android:visibility="visible"
+                            android:indeterminateTint="@color/colorPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

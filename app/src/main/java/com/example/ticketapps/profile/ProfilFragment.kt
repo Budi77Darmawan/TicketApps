@@ -3,6 +3,7 @@ package com.example.ticketapps.profile
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -69,7 +70,8 @@ class ProfilFragment : Fragment() {
                     }
                 }
 
-                binding.tvNameProfile.text = data?.full_name ?: "Full_name"
+                binding.tvNameProfile.text = data?.full_name?: "Full_name"
+
                 binding.tvCity.text = data?.city ?: "City"
                 binding.tvLocation.text = data?.address ?: "Address"
 
@@ -77,7 +79,7 @@ class ProfilFragment : Fragment() {
                     logout()
                 }
             } else {
-                Toast.makeText(this.requireContext(), "error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(), "Data Empty", Toast.LENGTH_SHORT).show()
             }
         })
     }
