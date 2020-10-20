@@ -5,5 +5,6 @@ data class TicketsModel(
     val timeDeparture: String?,
     val codeCityDestination: String?,
     val timeDestination: String?,
-    val ticketPrice: String?,
+    val ticketPrice: Int?,
+    val planeImage: String?
     )
