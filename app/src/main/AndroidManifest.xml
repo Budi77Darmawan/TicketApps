@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,21 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchFlightActivity" >
-        </activity>
+<<<<<<< HEAD
+        <activity android:name=".SearchFlightActivity" />
         <activity android:name=".FlightDetailActivity" />
         <activity android:name=".onboard.OnBoardActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+=======
+        <activity android:name=".searchResult.SearchResultActivity"></activity>
+        <activity android:name=".FlightDetailActivity" />
+        <activity android:name=".onBoard.OnBoardActivity" />
+        <activity android:name=".SearchFlightActivity" />
+        <activity android:name=".MainActivity" />
+>>>>>>> 0277b5d276ee868de57283c89ff35da22c1c0191
+        <activity android:name=".register.RegisterScreenActivity" />
+        <activity android:name=".login.LoginScreenActivity" />
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".register.RegisterScreenActivity" />
-        <activity android:name=".login.LoginScreenActivity" />
-        <activity android:name=".SplashScreenActivity">
-        </activity>
+        <activity android:name=".searchResult.SearchResultActivity"/>
     </application>
 
 </manifest>

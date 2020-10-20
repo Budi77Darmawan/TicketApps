@@ -18,6 +18,7 @@ import com.example.ticketapps.util.ApiClient
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
+import com.example.ticketapps.searchResult.SearchResultActivity
 
 
 class ProfilFragment : Fragment() {
@@ -42,6 +43,10 @@ class ProfilFragment : Fragment() {
             viewModel.setProfileService(service)
             viewModel.callProfileApi(id.toString())
             subscribeLiveData()
+        }
+        binding.tvNameProfile.setOnClickListener {
+            val intent = Intent(context, SearchResultActivity::class.java)
+            startActivity(intent)
         }
         return binding.root
     }
