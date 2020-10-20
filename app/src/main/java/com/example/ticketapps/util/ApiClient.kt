@@ -11,11 +11,9 @@ class ApiClient {
 
     companion object {
 
-<<<<<<< HEAD
-        private const val BASE_URL = "http://18.207.226.63:9090/"
-=======
+        // url backend wahyu "http://18.207.226.63:9090/"
+        // url backend budi "http://3.84.47.133:9090/"
         private const val BASE_URL = "http://3.84.47.133:9090/"
->>>>>>> 0277b5d276ee868de57283c89ff35da22c1c0191
         private var retrofit: Retrofit? = null
 
         private fun provideHttpLoggingInterceptor() = run {
