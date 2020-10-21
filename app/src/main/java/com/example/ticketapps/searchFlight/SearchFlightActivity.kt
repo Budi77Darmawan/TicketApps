@@ -1,12 +1,19 @@
-package com.example.ticketapps
+package com.example.ticketapps.searchFlight
 
-<<<<<<< HEAD
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ActivitySearchFlightBinding
+import com.example.ticketapps.searchResult.SearchResultActivity
+import com.example.ticketapps.searchResult.SearchResultApiService
+import com.example.ticketapps.searchResult.SearchResultViewModel
+import com.example.ticketapps.util.ApiClient
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.bottomsheet_searchflight.view.*
 import java.text.SimpleDateFormat
@@ -15,8 +22,14 @@ import java.util.*
 class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySearchFlightBinding
     private lateinit var bottomSheetProject: BottomSheetDialog
-    private var city_depature: String = "CGK"
-    private var city_destination: String = "JFK"
+    private lateinit var viewModel: SearchFlightViewModel
+    private var filterSearch = SearchFlightModel()
+    private var codeCityDeparture: String = "CGK"
+    private var cityDeparture: String = "Jakarta"
+    private var countryDeparture: String = "Indonesia"
+    private var codeCityDestination: String = "JFK"
+    private var cityDestination: String = "New York"
+    private var countryDestination: String = "United States"
     private var planeClass: String = "Economy"
     private var valueAdult: String = "1"
     private var valueChild: String = "1"
@@ -41,11 +54,20 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
         val view = layoutInflater.inflate(R.layout.bottomsheet_searchflight, null)
         bottomSheetProject.setContentView(view)
 
+        val service = ApiClient.getApiClient(this)?.create(AirportApiService::class.java)
+        viewModel = ViewModelProvider(this).get(SearchFlightViewModel::class.java)
+        if (service != null) {
+            viewModel.setSearchFlightService(service)
+        }
+        subscribeLiveData()
+
         view.number_adult.maxValue = 10
         view.number_adult.minValue = 1
         view.number_child.maxValue = 10
         view.number_child.minValue = 1
 
+        binding.tvCitydepature.setOnClickListener(this)
+        binding.btnSearch.setOnClickListener(this)
         binding.btnBack.setOnClickListener(this)
         binding.tvDate.setOnClickListener(this)
         binding.tvAdult.setOnClickListener(this)
@@ -56,7 +78,7 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
             binding.tvAdult.text = "$valueAdult Adult"
         }
         view.number_child.setOnValueChangedListener { _, _, _ ->
-            valueChild = view.number_adult.value.toString()
+            valueChild = view.number_child.value.toString()
             binding.tvChild.text = "$valueChild Child"
         }
 
@@ -77,6 +99,23 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_search -> {
+                filterSearch = SearchFlightModel(
+                    planeClass,
+                    "Pagi",
+                    codeCityDeparture,
+                    cityDeparture,
+                    countryDeparture,
+                    codeCityDestination,
+                    cityDestination,
+                    countryDestination,
+                    valueAdult,
+                    valueChild
+                )
+                val i = Intent(this, SearchResultActivity::class.java)
+                i.putExtra("SearchFilter", filterSearch)
+                startActivity(i)
+            }
             R.id.btn_back -> {
                 onBackPressed()
             }
@@ -99,27 +138,29 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
             R.id.tv_child -> {
                 bottomSheetProject.show()
             }
+            R.id.tv_citydepature -> {
+
+            }
         }
-=======
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import com.example.ticketapps.databinding.ActivitySearchFlightBinding
-import com.example.ticketapps.searchResult.SearchResultActivity
+    }
 
-class SearchFlightActivity : AppCompatActivity() {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
-    private lateinit var binding: ActivitySearchFlightBinding
+    private fun subscribeLiveData() {
+        viewModel.getDataFlightApi(
+            codeCityDeparture,
+            codeCityDestination
+        )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_search_flight)
-        binding.buttonSearchFlight.setOnClickListener {
-            val intent = Intent(this, SearchResultActivity::class.java)
-            startActivity(intent)
-        }
-
->>>>>>> 0277b5d276ee868de57283c89ff35da22c1c0191
+        viewModel.dataFlightLiveData.observe(this, {
+            cityDeparture = it.cityDepature.toString()
+            cityDestination = it.cityDestinantion.toString()
+            codeCityDeparture = it.codeDepature.toString()
+            codeCityDestination = it.codeDestinantion.toString()
+            countryDeparture = it.countryDepature.toString()
+            countryDestination = it.countryDestinantion.toString()
+        })
     }
 }

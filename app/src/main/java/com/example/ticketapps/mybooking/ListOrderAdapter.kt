@@ -1,11 +1,9 @@
 package com.example.ticketapps.mybooking
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ItemListMybookingBinding
 
@@ -52,7 +50,7 @@ class ListOrderAdapter(private val items: List<OrderModel>) :
         }
 
         holder.binding.layout.setOnClickListener {
-            onItemClickCallback.onItemClicked(item.id_order!!.toInt())
+           onItemClickCallback.onItemClicked(position)
         }
     }
 

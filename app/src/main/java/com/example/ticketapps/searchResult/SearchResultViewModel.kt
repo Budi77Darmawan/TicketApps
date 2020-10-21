@@ -1,9 +1,7 @@
 package com.example.ticketapps.searchResult
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -14,7 +12,6 @@ class SearchResultViewModel : ViewModel(), CoroutineScope {
     val countTicketsLiveData = MutableLiveData<Int>()
 
     private lateinit var service: SearchResultApiService
-    private lateinit var sharedPref: SharedPrefProvider
 
     override val coroutineContext: CoroutineContext
         get() = Job() + Dispatchers.Main
@@ -23,33 +20,33 @@ class SearchResultViewModel : ViewModel(), CoroutineScope {
         this.service = service
     }
 
-    fun putSharedPreferences(mContext: Context) {
-        sharedPref = SharedPrefProvider(mContext)
-    }
-
-    fun callSearchResultApi() {
+    fun callSearchResultApi(city_destination: String, city_departure: String, order_class: String, passengger: String) {
         launch {
             isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service.getTicketRequest("JFK", "CGK", "economy", "adult")
+                    service.getTicketRequest(city_destination, city_departure, order_class, passengger)
                 } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
             if (response is SearchResultResponse) {
                 withContext(Dispatchers.Main) {
-                    val list = response.data?.map {
+                    listTicketLiveData.value = response.data?.map {
                         TicketsModel(
-                            it.cityDeparture,
-                            it.timeDeparture,
-                            it.cityDestination,
-                            it.timeDestination,
+                            it.idPlane,
+                            it.planeImage,
                             it.price,
-                            it.planeImage
+                            it.codeDepature,
+                            it.cityDepature,
+                            it.codeCountryDepature,
+                            it.countryDepature,
+                            it.codeDestinantion,
+                            it.cityDestinantion,
+                            it.codeCountryDestinantion,
+                            it.countryDestinantion
                         )
-                    } ?: listOf()
-                    listTicketLiveData.value = list
+                    }
                     countTicketsLiveData.value = response.data?.size
                 }
             }

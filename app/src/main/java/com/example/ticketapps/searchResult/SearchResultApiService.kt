@@ -8,7 +8,7 @@ interface SearchResultApiService {
     @GET("order/ticket")
     suspend fun getTicketRequest(
         @Query("city_destination") cityDestination: String,
-        @Query("city_departure") cityDeparture: String,
+        @Query("city_depature") cityDeparture: String,
         @Query("order_class") orderClass: String,
         @Query("passengger") passenger: String
     ): SearchResultResponse

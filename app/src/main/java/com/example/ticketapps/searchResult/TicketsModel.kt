@@ -1,10 +1,19 @@
 package com.example.ticketapps.searchResult
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class TicketsModel(
-    val codeCityDeparture: String?,
-    val timeDeparture: String?,
-    val codeCityDestination: String?,
-    val timeDestination: String?,
-    val ticketPrice: Int?,
-    val planeImage: String?
-    )
+    val idPlane: String?,
+    val planeImage: String?,
+    val price: String?,
+    val codeDepature: String?,
+    val cityDepature: String?,
+    val codeCountryDepature: String?,
+    val countryDepature: String?,
+    val codeDestinantion: String?,
+    val cityDestinantion: String?,
+    val codeCountryDestinantion: String?,
+    val countryDestinantion: String?
+) : Parcelable

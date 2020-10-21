@@ -7,6 +7,7 @@ import kotlin.coroutines.CoroutineContext
 
 class MyBookingViewModel: ViewModel(), CoroutineScope {
     private lateinit var service: OrderApiService
+    val isLoadingLiveData = MutableLiveData<Boolean>()
     var listLiveData = MutableLiveData(listOf<OrderModel>())
 
     override val coroutineContext: CoroutineContext
@@ -18,6 +19,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
 
     fun getOrderApi() {
         launch {
+            isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
                     service.getOrderRequest()
@@ -33,7 +35,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
                         it.status_payment.orEmpty(),
                         it.price.orEmpty(),
                         it.order_class.orEmpty(),
-                        it.time_flight.orEmpty(),
+                        it.times_flight.orEmpty(),
                         it.code_depature.orEmpty(),
                         it.city_depature.orEmpty(),
                         it.code_country_depature.orEmpty(),
@@ -47,6 +49,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
                     )
                 }
             }
+            isLoadingLiveData.value = false
         }
     }
 }

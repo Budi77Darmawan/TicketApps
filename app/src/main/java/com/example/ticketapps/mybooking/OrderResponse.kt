@@ -10,7 +10,7 @@ class OrderResponse(val success: Boolean, val message: String?, val data: List<D
         @SerializedName("status_payment") val status_payment: String?,
         @SerializedName("price") val price: String?,
         @SerializedName("order_class") val order_class: String?,
-        @SerializedName("time_flight") val time_flight : String?,
+        @SerializedName("times_flight") val times_flight : String?,
         @SerializedName("code_depature") val code_depature: String?,
         @SerializedName("city_depature") val city_depature: String?,
         @SerializedName("code_country_depature") val code_country_depature: String?,

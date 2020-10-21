@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".SearchFlightActivity">
+        tools:context=".searchFlight.SearchFlightActivity">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -277,7 +277,7 @@
                         android:layout_marginEnd="15dp"
                         android:checked="true"
                         android:text="Economy"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/tv_business"
@@ -285,7 +285,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="15dp"
                         android:text="Business"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/tv_firstclass"
@@ -293,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="15dp"
                         android:text="First Class"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
                 </RadioGroup>
 
                 <Button

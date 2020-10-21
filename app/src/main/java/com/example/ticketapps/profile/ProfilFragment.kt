@@ -20,7 +20,6 @@ import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
 import com.example.ticketapps.searchResult.SearchResultActivity
 
-
 class ProfilFragment : Fragment() {
     private lateinit var sharedPref: SharedPrefProvider
     private lateinit var binding: FragmentProfilBinding
@@ -69,7 +68,8 @@ class ProfilFragment : Fragment() {
                     }
                 }
 
-                binding.tvNameProfile.text = data?.full_name ?: "Full_name"
+                binding.tvNameProfile.text = data?.full_name?: "Full_name"
+
                 binding.tvCity.text = data?.city ?: "City"
                 binding.tvLocation.text = data?.address ?: "Address"
 
@@ -77,7 +77,7 @@ class ProfilFragment : Fragment() {
                     logout()
                 }
             } else {
-                Toast.makeText(this.requireContext(), "error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(), "Data Empty", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -90,6 +90,7 @@ class ProfilFragment : Fragment() {
                 .setCancelable(false)
                 .setPositiveButton("YES") { _: DialogInterface?, _: Int ->
                     sharedPref.resetSharedPref()
+                    sharedPref.putBoolean(Constant.KEY_ONBOARD, true)
                     val i = Intent(activity, LoginScreenActivity::class.java)
                     startActivity(i)
                     requireActivity().finish()
