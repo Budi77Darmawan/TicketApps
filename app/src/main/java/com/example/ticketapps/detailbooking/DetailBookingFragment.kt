@@ -21,7 +21,7 @@ class DetailBookingFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.fragment_detail_booking)
-        val orderModel: OrderModel? = intent.getParcelableExtra<OrderModel>(MyBookingFragment.PUT_EXTRA)
+            val orderModel: OrderModel? = intent.getParcelableExtra<OrderModel>(MyBookingFragment.PUT_EXTRA)
 
 
 

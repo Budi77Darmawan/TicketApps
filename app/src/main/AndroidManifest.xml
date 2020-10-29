@@ -10,18 +10,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SearchFlightActivity" />
-        <activity android:name=".FlightDetailActivity" />
         <activity android:name=".onboard.OnBoardActivity" />
+        <activity android:name=".detailbooking.DetailBookingFragment" />
         <activity android:name=".MainActivity"/>
-        <activity android:name=".searchResult.SearchResultActivity"></activity>
-        <activity android:name=".FlightDetailActivity" />
-        <activity android:name=".onBoard.OnBoardActivity" />
-        <activity android:name=".SearchFlightActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".searchResult.SearchResultActivity"/>
+        <activity android:name=".flighdetail.FlightDetailActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".SplashScreenActivity">
@@ -31,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".searchResult.SearchResultActivity"/>
     </application>
 
 </manifest>

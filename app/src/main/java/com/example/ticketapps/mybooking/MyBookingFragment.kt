@@ -48,14 +48,13 @@ class MyBookingFragment : Fragment() {
         binding.rvMybooking.layoutManager = LinearLayoutManager(requireContext())
         val listOrderAdapter = ListOrderAdapter(list)
         binding.rvMybooking.adapter = listOrderAdapter
-        Log.d("CEK lISt", "${list}")
         listOrderAdapter.setOnItemClickCallback(object :
             ListOrderAdapter.OnItemClickCallback {
             override fun onItemClicked(id: Int) {
 
                     val intent = Intent(context, DetailBookingFragment::class.java)
                     intent.putExtra(PUT_EXTRA, list[id])
-                    context?.startActivity(intent)
+                context?.startActivity(intent)
 
             }
         })

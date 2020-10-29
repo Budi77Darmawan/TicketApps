@@ -72,8 +72,8 @@ class ProfilFragment : Fragment() {
 
                 binding.tvNameProfile.text = data?.full_name?: "Full_name"
 
-                binding.tvCity.text = data?.city ?: "City"
-                binding.tvLocation.text = data?.address ?: "Address"
+                binding.tvCity.text = data?.city ?: "Bekasi"
+                binding.tvLocation.text = data?.address ?: "Bintaro"
 
                 binding.tvLogout.setOnClickListener {
                     logout()
