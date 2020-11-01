@@ -16,12 +16,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
-        <activity android:name=".searchResult.SearchResultActivity" />
-        <activity android:name=".onBoard.OnBoardActivity" />
+        <activity android:name=".profile.edit.EditActivity"></activity>
         <activity android:name=".searchFlight.SearchFlightActivity" />
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".onBoard.OnBoardActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".searchResult.SearchResultActivity" />
+        <activity android:name=".flightDetail.FlightDetailActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />
         <activity android:name=".SplashScreenActivity">
@@ -31,8 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".flightDetail.FlightDetailActivity" />
-        <activity android:name=".detailBooking.DetailBookingFragment"/>
     </application>
 
 </manifest>

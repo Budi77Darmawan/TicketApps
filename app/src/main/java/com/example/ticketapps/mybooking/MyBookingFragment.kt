@@ -47,16 +47,19 @@ class MyBookingFragment : Fragment() {
         val listOrderAdapter = ListOrderAdapter(list)
         binding.rvMybooking.adapter = listOrderAdapter
 
+
         listOrderAdapter.setOnItemClickCallback(object :
             ListOrderAdapter.OnItemClickCallback {
             override fun onItemClicked(id: Int) {
                 if (list[id].status_payment == "paid") {
                     val intent = Intent(context, DetailBookingFragment::class.java)
                     intent.putExtra(PUT_EXTRA, list[id])
+
                     context?.startActivity(intent)
                 } else {
                     Toast.makeText(requireContext(), "Waiting for payment!", Toast.LENGTH_SHORT).show()
                 }
+
 
             }
         })

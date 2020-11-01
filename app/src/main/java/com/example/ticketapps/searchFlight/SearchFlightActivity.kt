@@ -1,5 +1,6 @@
 package com.example.ticketapps.searchFlight
 
+
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -140,6 +141,7 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tv_citydepature -> {
 
+
             }
         }
     }
@@ -147,6 +149,7 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
     }
+
 
     private fun subscribeLiveData() {
 //        viewModel.getDataFlightApi(

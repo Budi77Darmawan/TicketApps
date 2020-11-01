@@ -18,6 +18,7 @@ import com.example.ticketapps.util.ApiClient
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
+import com.example.ticketapps.profile.edit.EditActivity
 import com.example.ticketapps.searchResult.SearchResultActivity
 
 class ProfileFragment : Fragment() {
@@ -47,6 +48,10 @@ class ProfileFragment : Fragment() {
             val intent = Intent(context, SearchResultActivity::class.java)
             startActivity(intent)
         }
+        binding.tvEdit.setOnClickListener {
+            val intent = Intent(context, EditActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -68,10 +73,10 @@ class ProfileFragment : Fragment() {
                     }
                 }
 
-                binding.tvNameProfile.text = data?.full_name?: "Full_name"
+                binding.tvNameProfile.text = data?.full_name?: ""
 
-                binding.tvCity.text = data?.city ?: "City"
-                binding.tvLocation.text = data?.address ?: "Address"
+                binding.tvCity.text = data?.city ?: ""
+                binding.tvLocation.text = data?.address ?: ""
 
                 binding.tvLogout.setOnClickListener {
                     logout()
