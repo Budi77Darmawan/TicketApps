@@ -24,7 +24,7 @@ class FlightDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFlightDetailBinding
     private lateinit var sharedPref: SharedPrefProvider
     private var name_account = ""
-    private fun getPhotoImage(file: String) : String = "http://3.84.47.133:9090/uploads/$file"
+    private fun getPhotoImage(file: String) : String = "http://18.212.194.218:9090/uploads/$file"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
