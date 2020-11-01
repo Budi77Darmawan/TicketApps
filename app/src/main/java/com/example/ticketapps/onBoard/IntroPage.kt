@@ -1,4 +1,4 @@
-package com.example.ticketapps.onboard
+package com.example.ticketapps.onBoard
 
 import android.annotation.SuppressLint
 import android.os.Bundle

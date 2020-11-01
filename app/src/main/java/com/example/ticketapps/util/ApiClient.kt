@@ -10,8 +10,11 @@ import java.util.concurrent.TimeUnit
 class ApiClient {
 
     companion object {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e53202bfbc9a950d9af501f4bf69caf377c6c2ec
         private const val BASE_URL = "http://3.84.47.133:9090/"
         private var retrofit: Retrofit? = null
 

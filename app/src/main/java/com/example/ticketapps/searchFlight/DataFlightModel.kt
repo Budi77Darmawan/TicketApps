@@ -1,13 +1,10 @@
-package com.example.ticketapps.searchResult
+package com.example.ticketapps.searchFlight
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class TicketsModel(
-    val idPlane: String?,
-    val planeImage: String?,
-    val price: String?,
+class DataFlightModel(
     val codeDepature: String?,
     val cityDepature: String?,
     val codeCountryDepature: String?,

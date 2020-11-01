@@ -13,6 +13,7 @@ class LoginViewModel : ViewModel(), CoroutineScope {
     val isLoadingLiveData = MutableLiveData<Boolean>()
     val isLoginLiveData = MutableLiveData<Boolean>()
     private lateinit var idAccount: String
+    private lateinit var nameAccount: String
     private lateinit var token: String
     val isMessageLiveData = MutableLiveData<String>()
 
@@ -28,14 +29,16 @@ class LoginViewModel : ViewModel(), CoroutineScope {
 
     fun putSharedPreferences(mContext: Context) {
         sharedPref = SharedPrefProvider(mContext)
+        sharedPref.putString(Constant.KEY_NAME, nameAccount)
         sharedPref.putString(Constant.KEY_ID_ACCOUNT, idAccount)
         sharedPref.putString(Constant.KEY_TOKEN, token)
+        sharedPref.putBoolean(Constant.KEY_REMEMBERLOGIN, true)
     }
 
     fun callLoginApi(email: String?, password: String?) {
         launch {
             isLoadingLiveData.value = true
-            val response = withContext(Dispatchers.IO) {
+            val response = withContext(Dispatchers.Main) {
                 try {
                     service.loginRequest(email, password)
                 } catch (e: Throwable) {
@@ -45,6 +48,7 @@ class LoginViewModel : ViewModel(), CoroutineScope {
             }
             if (response is LoginResponse) {
                 if (response.success) {
+                    nameAccount = response.data.name.toString()
                     idAccount = response.data.idAccount.toString()
                     token = response.data.token.toString()
                     isLoginLiveData.value = true

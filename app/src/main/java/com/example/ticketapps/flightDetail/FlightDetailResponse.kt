@@ -1,4 +1,4 @@
-package com.example.ticketapps.flighdetail
+package com.example.ticketapps.flightDetail
 
 import com.google.gson.annotations.SerializedName
 

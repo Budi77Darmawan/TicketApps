@@ -3,7 +3,6 @@ package com.example.ticketapps.profile
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,6 @@ import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
 import com.example.ticketapps.searchResult.SearchResultActivity
-
 
 class ProfilFragment : Fragment() {
     private lateinit var sharedPref: SharedPrefProvider
@@ -92,6 +90,7 @@ class ProfilFragment : Fragment() {
                 .setCancelable(false)
                 .setPositiveButton("YES") { _: DialogInterface?, _: Int ->
                     sharedPref.resetSharedPref()
+                    sharedPref.putBoolean(Constant.KEY_ONBOARD, true)
                     val i = Intent(activity, LoginScreenActivity::class.java)
                     startActivity(i)
                     requireActivity().finish()

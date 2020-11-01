@@ -2,7 +2,6 @@ package com.example.ticketapps.mybooking
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ticketapps.OrderApiService
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentMyBookingBinding
-import com.example.ticketapps.detailbooking.DetailBookingFragment
 import com.example.ticketapps.util.ApiClient
 
 class MyBookingFragment : Fragment() {
@@ -48,19 +45,30 @@ class MyBookingFragment : Fragment() {
         binding.rvMybooking.layoutManager = LinearLayoutManager(requireContext())
         val listOrderAdapter = ListOrderAdapter(list)
         binding.rvMybooking.adapter = listOrderAdapter
+
+
         listOrderAdapter.setOnItemClickCallback(object :
             ListOrderAdapter.OnItemClickCallback {
             override fun onItemClicked(id: Int) {
-
+                if (list[id].status_payment == "paid") {
                     val intent = Intent(context, DetailBookingFragment::class.java)
                     intent.putExtra(PUT_EXTRA, list[id])
-                context?.startActivity(intent)
+
+                    context?.startActivity(intent)
+                } else {
+                    Toast.makeText(requireContext(), "Waiting for payment!", Toast.LENGTH_SHORT).show()
+                }
+
 
             }
         })
     }
 
     private fun subscribeLiveData() {
+        viewModel.isLoadingLiveData.observe(viewLifecycleOwner, {
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
+
         viewModel.listLiveData.observe(viewLifecycleOwner, {
             if (it.isNullOrEmpty()) {
                 binding.imageView.visibility = View.VISIBLE
@@ -70,7 +78,6 @@ class MyBookingFragment : Fragment() {
                 binding.desc.visibility = View.GONE
                 showRecyclerList(it)
             }
-
         })
     }
 }

@@ -2,12 +2,12 @@ package com.example.ticketapps.mybooking
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ticketapps.OrderApiService
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class MyBookingViewModel: ViewModel(), CoroutineScope {
     private lateinit var service: OrderApiService
+    val isLoadingLiveData = MutableLiveData<Boolean>()
     var listLiveData = MutableLiveData(listOf<OrderModel>())
 
     override val coroutineContext: CoroutineContext
@@ -19,6 +19,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
 
     fun getOrderApi() {
         launch {
+            isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
                     service.getOrderRequest()
@@ -48,6 +49,7 @@ class MyBookingViewModel: ViewModel(), CoroutineScope {
                     )
                 }
             }
+            isLoadingLiveData.value = false
         }
     }
 }

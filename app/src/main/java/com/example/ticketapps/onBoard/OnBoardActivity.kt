@@ -1,4 +1,4 @@
-package com.example.ticketapps.onboard
+package com.example.ticketapps.onBoard
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,12 +12,15 @@ import com.example.ticketapps.R
 import com.example.ticketapps.databinding.ActivityOnBoardBinding
 import com.example.ticketapps.login.LoginScreenActivity
 import com.example.ticketapps.register.RegisterScreenActivity
+import com.example.ticketapps.util.sharedpref.Constant
+import com.example.ticketapps.util.sharedpref.SharedPrefProvider
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_on_board.*
 
 class OnBoardActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityOnBoardBinding
+    private lateinit var sharedPref: SharedPrefProvider
+
     private val mResources = intArrayOf(
         R.drawable.ic_illustration,
         R.drawable.ic_illustration,
@@ -32,14 +35,20 @@ class OnBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_on_board)
 
+        sharedPref = SharedPrefProvider(applicationContext)
+
         binding.apply {
             login.setOnClickListener {
-                val intentlogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
-                startActivity(intentlogin)
+                sharedPref.putBoolean(Constant.KEY_ONBOARD, true)
+                val intentLogin = Intent(this@OnBoardActivity, LoginScreenActivity::class.java)
+                startActivity(intentLogin)
+                finish()
             }
             register.setOnClickListener {
-                val intentregister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
-                startActivity(intentregister)
+                sharedPref.putBoolean(Constant.KEY_ONBOARD, true)
+                val intentRegister = Intent(this@OnBoardActivity, RegisterScreenActivity::class.java)
+                startActivity(intentRegister)
+                finish()
             }
         }
 

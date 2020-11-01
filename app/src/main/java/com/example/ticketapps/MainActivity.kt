@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.ticketapps.databinding.ActivityMainBinding
+import com.example.ticketapps.explore.ExploreFragment
 import com.example.ticketapps.mybooking.MyBookingFragment
 import com.example.ticketapps.profile.ProfilFragment
 
@@ -19,8 +20,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        loadFragment(ProfilFragment())
-
+        val intent = intent.getIntExtra("MyBooking", 0)
+        if (intent == 1) {
+            loadFragment(MyBookingFragment())
+        } else {
+            loadFragment(ExploreFragment())
+        }
+        
         binding.let {
             it.mybooking.setOnClickListener(this)
             it.explore.setOnClickListener(this)
@@ -42,6 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 binding.tvMybooking.setTextColor(Color.parseColor("#979797"))
                 binding.profile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_user))
                 binding.tvProfile.setTextColor(Color.parseColor("#979797"))
+                loadFragment(ExploreFragment())
             }
             R.id.profile -> {
                 binding.mybooking.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_calender))

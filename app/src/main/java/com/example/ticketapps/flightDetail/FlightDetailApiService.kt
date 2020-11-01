@@ -1,6 +1,5 @@
-package com.example.ticketapps.flighdetail
+package com.example.ticketapps.flightDetail
 
-import com.example.ticketapps.register.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

@@ -8,10 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".flighdetail.FlightDetailActivity">
+        tools:context=".flightDetail.FlightDetailActivity">
 
 <!--        Scroll-->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -374,7 +374,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </ScrollView>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -387,7 +387,7 @@
                 android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="button back"
+                android:contentDescription="@string/button_back"
                 android:src="@drawable/ic_btnback" />
 
         </androidx.appcompat.widget.Toolbar>
