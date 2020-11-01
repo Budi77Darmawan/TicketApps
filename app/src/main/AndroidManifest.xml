@@ -13,11 +13,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".profile.edit.EditActivity"></activity>
         <activity android:name=".searchFlight.SearchFlightActivity" />
         <activity android:name=".onBoard.OnBoardActivity" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".searchResult.SearchResultActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".searchResult.SearchResultActivity" />
         <activity android:name=".flightDetail.FlightDetailActivity" />
         <activity android:name=".register.RegisterScreenActivity" />
         <activity android:name=".login.LoginScreenActivity" />

@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ticketapps.R
 import com.example.ticketapps.databinding.FragmentMyBookingBinding
+import com.example.ticketapps.detailBooking.DetailBookingFragment
 import com.example.ticketapps.util.ApiClient
 
 class MyBookingFragment : Fragment() {
