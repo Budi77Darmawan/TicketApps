@@ -24,7 +24,7 @@ class DetailBookingFragment : AppCompatActivity() {
         binding.tvDestination.text = orderModel?.code_destination ?: " "
         binding.tvClass.text = orderModel?.order_class ?: ""
         Glide.with(this)
-            .load("http://3.84.47.133:9090/uploads/" + orderModel?.plane_image)
+            .load("http://18.212.194.218:9090/uploads/" + orderModel?.plane_image)
             .into(binding.imgLogo)
         binding.tvTimedepature.text = orderModel?.times_flight ?: ""
         binding.progressBar.visibility = View.GONE

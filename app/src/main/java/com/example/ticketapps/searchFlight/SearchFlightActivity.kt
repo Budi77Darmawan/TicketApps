@@ -149,9 +149,13 @@ class SearchFlightActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun subscribeLiveData() {
+//        viewModel.getDataFlightApi(
+//            codeCityDeparture,
+//            codeCityDestination
+//        )
         viewModel.getDataFlightApi(
-            codeCityDeparture,
-            codeCityDestination
+            "BPN",
+            "CGK"
         )
 
         viewModel.dataFlightLiveData.observe(this, {

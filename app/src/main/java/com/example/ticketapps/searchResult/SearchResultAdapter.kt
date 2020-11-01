@@ -12,7 +12,7 @@ class SearchResultAdapter(private val items: List<TicketsModel>):
     RecyclerView.Adapter<SearchResultAdapter.SearchResultHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
-    private fun getPhotoImage(file: String) : String = "http://3.84.47.133:9090/uploads/$file"
+    private fun getPhotoImage(file: String) : String = "http://18.212.194.218:9090/uploads/$file"
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback

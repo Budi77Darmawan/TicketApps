@@ -20,11 +20,11 @@ import com.example.ticketapps.databinding.FragmentProfilBinding
 import com.example.ticketapps.login.LoginScreenActivity
 import com.example.ticketapps.searchResult.SearchResultActivity
 
-class ProfilFragment : Fragment() {
+class ProfileFragment : Fragment() {
     private lateinit var sharedPref: SharedPrefProvider
     private lateinit var binding: FragmentProfilBinding
     private lateinit var viewModel: ProfileViewModel
-    private fun getPhotoImage(file: String): String = "http://3.84.47.133:9090/uploads/$file"
+    private fun getPhotoImage(file: String): String = "http://18.212.194.218:9090/uploads/$file"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

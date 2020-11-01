@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.ticketapps.databinding.ActivityMainBinding
 import com.example.ticketapps.explore.ExploreFragment
 import com.example.ticketapps.mybooking.MyBookingFragment
-import com.example.ticketapps.profile.ProfilFragment
+import com.example.ticketapps.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 binding.tvMybooking.setTextColor(Color.parseColor("#979797"))
                 binding.profile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_useractive))
                 binding.tvProfile.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
-                loadFragment(ProfilFragment())
+                loadFragment(ProfileFragment())
             }
         }
     }
