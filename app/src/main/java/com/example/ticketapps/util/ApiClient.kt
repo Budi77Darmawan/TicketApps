@@ -10,16 +10,7 @@ import java.util.concurrent.TimeUnit
 class ApiClient {
 
     companion object {
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e53202bfbc9a950d9af501f4bf69caf377c6c2ec
-        private const val BASE_URL = "http://3.84.47.133:9090/"
-=======
         private const val BASE_URL = "http://18.212.194.218:9090/"
->>>>>>> 30a442e7ddf7c0263d7c87d4284703c0f3b64b30
         private var retrofit: Retrofit? = null
 
         private fun provideHttpLoggingInterceptor() = run {
